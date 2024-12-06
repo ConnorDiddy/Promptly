@@ -3,6 +3,8 @@
   //@ts-ignore
   import Home from "./routes/Home.svelte";
   import MultipleChoice from "./routes/MultipleChoice.svelte";
+  import YesNo from "./routes/YesNo.svelte";
+  import Results from "./routes/Results.svelte";
 
   export let url = "";
 </script>
@@ -11,7 +13,8 @@
   <main>
     <Route path="/" component={Home} />
     <Route path="/multiple-choice" component={MultipleChoice} />
-    <Route path="/yes-no" component={MultipleChoice} />
+    <Route path="/yes-no" component={YesNo} />
+    <Route path="/results" component={Results} />
   </main>
 </Router>
 

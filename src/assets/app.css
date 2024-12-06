@@ -19,7 +19,7 @@
 :root {
   --brooksBlue: #003058;
   --rockRed: #BA1C21;
-  font-family: 'Altivo', sans-serif;
+  font-family: 'Bison-Bold', sans-serif;
   --pico-background-color: var(--brooksBlue) !important;
   --pico-primary: var(--rockRed);
 }
@@ -46,8 +46,6 @@
     --pico-primary: var(--rockRed);
     --pico-primary-background: var(--rockRed);
     --pico-primary-underline: rgba(245, 107, 61, 0.5);
-    --pico-primary-hover: #f8a283;
-    --pico-primary-hover-background: #e74b1a;
     --pico-primary-focus: rgba(245, 107, 61, 0.375);
     --pico-primary-inverse: #fff;
   }
@@ -59,8 +57,6 @@
   --pico-primary: var(--rockRed);
   --pico-primary-background: var(--rockRed);
   --pico-primary-underline: rgba(245, 107, 61, 0.5);
-  --pico-primary-hover: #f8a283;
-  --pico-primary-hover-background: #e74b1a;
   --pico-primary-focus: rgba(245, 107, 61, 0.375);
   --pico-primary-inverse: #fff;
 }
