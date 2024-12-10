@@ -2,29 +2,22 @@
   import { navigate } from "svelte-routing";
   import Card from "../lib/Card.svelte";
   import CardTitle from "../lib/CardTitle.svelte";
-  import { notifications } from "../stores.js";
-  import CardHeader from "../lib/CardHeader.svelte";
+  import { notifications, questionText, questionAnswers } from "../stores.js";
 
-  let question = "";
-  let type = "";
-  let yesCount = 0;
-  let noCount = 0;
-
-  const urlParams = new URLSearchParams(window.location.search);
-  type = urlParams.get("type");
-  question = urlParams.get("question");
+  let counts = { A: 0, B: 0, C: 0, D: 0 };
 
   // Subscribe to notifications and update counts
   notifications.subscribe((value) => {
-    if (type === "yes-no") {
-      yesCount = 0;
-      noCount = 0;
-      for (const id in value) {
-        if (value[id] === "1") {
-          yesCount++;
-        } else if (value[id] === "0") {
-          noCount++;
-        }
+    counts = { A: 0, B: 0, C: 0, D: 0 };
+    for (const id in value) {
+      if (value[id] === "A") {
+        counts.A++;
+      } else if (value[id] === "B") {
+        counts.B++;
+      } else if (value[id] === "C") {
+        counts.C++;
+      } else if (value[id] === "D") {
+        counts.D++;
       }
     }
   });
@@ -38,40 +31,33 @@
       }
       return n;
     });
+    questionText.set("");
+    questionAnswers.set([]);
   }
 </script>
 
 <main>
   <Card>
-    <CardTitle title={question} />
-    {#if type === "yes-no"}
-      <div class="poll-container">
+    <CardTitle title={$questionText} />
+    <div class="poll-container">
+      {#each Object.entries(counts) as [label, count]}
         <div class="answer-row">
+          {label}.
+          {#if $questionAnswers[label?.charCodeAt(0) - 'A'.charCodeAt(0)]}
           <div class="answer-label">
-            <div class="option yes">Yes</div>
+            <div class="option">{$questionAnswers[label?.charCodeAt(0) - 'A'.charCodeAt(0)]}</div>
           </div>
-          <div class="answer-count">{yesCount}</div>
+          {/if}
+          <div class="answer-count">{count}</div>
           <div class="answer-bar">
-            <div class="bar" style="width: {yesCount * 10}px;"></div>
+            <div class="bar" style="width: {count * 10}px;"></div>
           </div>
         </div>
-
-        <div class="answer-row">
-          <div class="answer-label">
-            <div class="option no">No</div>
-          </div>
-          <div class="answer-count">{noCount}</div>
-          <div class="answer-bar">
-            <div class="bar" style="width: {noCount * 10}px;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="action-row">
-        <button class="end-poll-button" on:click={handleEndPoll}
-          >End Poll</button
-        >
-      </div>
-    {/if}
+      {/each}
+    </div>
+    <div class="action-row">
+      <button class="end-poll-button" on:click={handleEndPoll}>End Poll</button>
+    </div>
   </Card>
 </main>
 
@@ -87,7 +73,7 @@
     flex-direction: column;
     align-items: start;
     gap: 1rem;
-    margin: 3.5rem 15px;
+    margin: 2.5rem ;
   }
 
   .answer-row {
@@ -95,6 +81,7 @@
     align-items: center;
     justify-content: start;
     gap: 1rem;
+    font-weight: bold;
   }
 
   .answer-label {
@@ -111,6 +98,7 @@
     border-radius: 4px;
     display: flex;
     justify-content: center;
+    white-space: nowrap;
   }
 
   .answer-count {

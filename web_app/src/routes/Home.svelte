@@ -12,7 +12,7 @@
     <button disabled={!$isConnected} on:click={() => navigate("/multiple-choice")}
       >Multiple Choice</button
     >
-    <button disabled={!$isConnected} on:click={() => navigate("/yes-no")}>Yes / No</button>
+    <button disabled={!$isConnected} on:click={() => navigate("/yes-no")}>Yes or No</button>
   </Card>
 </main>
 
@@ -24,6 +24,5 @@
 
   p {
     font-size: 20px;
-    font-weight: bold;
   }
 </style>

@@ -1,31 +1,35 @@
 @font-face {
   font-family: 'Bison-Bold';
-  src: url('/fonts/Bison-Bold.ttf');
+  src: url('src/fonts/Bison-Bold.ttf');
   font-size: 28px;
 }
 
 @font-face {
   font-family: 'Trailblazers-Font-B';
-  src: url('/fonts/Trailblazers-Font-B.ttf');
+  src: url('src/fonts/Trailblazers-Font-B.ttf');
   font-size: 28px;
 }
 
 @font-face {
   font-family: 'Altivo';
-  src: url('/fonts/Altivo.otf');
+  src: url('src/fonts/Altivo.otf');
   font-size: 28px;
 }
 
 :root {
   --brooksBlue: #003058;
   --rockRed: #BA1C21;
-  font-family: 'Bison-Bold', sans-serif;
+  font-family: 'Trailblazers-Font-B', sans-serif;
   --pico-background-color: var(--brooksBlue) !important;
   --pico-primary: var(--rockRed);
 }
 
-/* Orange color for light color scheme (Default) */
-/* Can be forced with data-theme="light" */
+h1 {
+  font-family: 'Trailblazers-Font-B', sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.2rem;
+}
+
 [data-theme=light],
 :root:not([data-theme=dark]) {
   --pico-text-selection-color: rgba(244, 93, 44, 0.25);

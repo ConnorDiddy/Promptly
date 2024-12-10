@@ -4,7 +4,8 @@
   import Home from "./routes/Home.svelte";
   import MultipleChoice from "./routes/MultipleChoice.svelte";
   import YesNo from "./routes/YesNo.svelte";
-  import Results from "./routes/Results.svelte";
+  import YesNoResults from "./routes/YesNoResults.svelte";
+  import MultipleChoiceResults from "./routes/MultipleChoiceResults.svelte";
 
   export let url = "";
 </script>
@@ -14,7 +15,8 @@
     <Route path="/" component={Home} />
     <Route path="/multiple-choice" component={MultipleChoice} />
     <Route path="/yes-no" component={YesNo} />
-    <Route path="/results" component={Results} />
+    <Route path="/results/yes-no" component={YesNoResults} />
+    <Route path="/results/multiple-choice" component={MultipleChoiceResults} />
   </main>
 </Router>
 
