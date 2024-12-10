@@ -29,4 +29,10 @@ The software that goes on each Clicker is located [here](sender/sender.ino).
 
 The software that goes on the receiver is located [here](receiver/receiver.ino).
 
-To run the 
+The web app is hosted for you [here](https://ut-promptly.netlify.app/), so there is no need to run it locally.
+
+If you do want to run it locally, you can do so by navigating to the ```web_app``` directory and running 
+```
+npm install
+npm run dev
+```
