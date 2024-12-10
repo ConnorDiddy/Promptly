@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'Bison-Bold';
-  src: url('src/fonts/Bison-Bold.ttf');
+  src: url('../fonts/Bison-Bold.ttf') format('truetype');;
   font-size: 28px;
 }
 
 @font-face {
   font-family: 'Trailblazers-Font-B';
-  src: url('src/fonts/Trailblazers-Font-B.ttf');
+  src: url('../fonts/Trailblazers-Font-B.ttf') format('truetype');
   font-size: 28px;
 }
 
 @font-face {
   font-family: 'Altivo';
-  src: url('src/fonts/Altivo.otf');
+  src: url('../fonts/Altivo.otf') format('truetype');;
   font-size: 28px;
 }
 
